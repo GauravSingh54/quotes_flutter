@@ -23,7 +23,7 @@ class _QuotesListState extends State<QuotesList> {
         text: 'Only true freedom is a powerful network and lots of money')
   ];
 
-  Widget quoteTemplate(Quote qoute) {
+  Widget quoteTemplate(Quote quote) {
     return QuoteCard(quote: quote);
   }
 
