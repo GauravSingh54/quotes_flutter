@@ -22,25 +22,30 @@ class _QuotesListState extends State<QuotesList> {
   Widget quoteTemplate(qoute){
     return Card(
       margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-      child: Column(children: [
-        Text(
-          qoute.text,
-          style: TextStyle(
-            fontSize: 18,
-            color: Colors.grey[600],
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+          Text(
+            qoute.text,
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.grey[600],
+            ),
           ),
-        ),
-
-        const SizedBox(height: 6,),
-        Text(
-          qoute.author,
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey[800],
-          ),
-        )
-
-      ],),
+        
+          const SizedBox(height: 6,),
+          Text(
+            qoute.author,
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.grey[800],
+            ),
+          )
+        
+        ],),
+      ),
     );
   }
 
@@ -56,7 +61,7 @@ class _QuotesListState extends State<QuotesList> {
       ),
 
       body: Column(
-        children: quotes.map((quote) =>Text('${quote.text} - ${quote.author}')).toList(),
+        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
         ),
 
     );
