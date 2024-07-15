@@ -19,6 +19,31 @@ class _QuotesListState extends State<QuotesList> {
     Quote(author: 'Andrew Tate 3', text:  'Only true freedom is a powerful network and lots of money')
   ];
 
+  Widget quoteTemplate(qoute){
+    return Card(
+      margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+      child: Column(children: [
+        Text(
+          qoute.text,
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.grey[600],
+          ),
+        ),
+
+        const SizedBox(height: 6,),
+        Text(
+          qoute.author,
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.grey[800],
+          ),
+        )
+
+      ],),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
