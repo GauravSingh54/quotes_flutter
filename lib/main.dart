@@ -24,10 +24,6 @@ class _QuotesListState extends State<QuotesList> {
         text: 'Only true freedom is a powerful network and lots of money')
   ];
 
-  Widget quoteTemplate(Quote quote) {
-    return QuoteCard(quote: quote);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +34,14 @@ class _QuotesListState extends State<QuotesList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
+        children: quotes.map((quote) => QuoteCard(
+          quote: quote,
+          delete: () {
+            setState(() {
+              quotes.remove(quote);
+            });
+          }
+        )).toList(),
       ),
     );
   }
